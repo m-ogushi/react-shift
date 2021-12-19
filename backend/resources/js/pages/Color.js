@@ -4,7 +4,7 @@ import axios from 'axios';
 import ShiftTable from '../components/ShiftTable';
 import RegistModalWindow from '../components/RegistModalWindow';
 
-import RegistModalContext from "../components/providers/RegistModalProvider";
+import { RegistModalContext } from "../components/providers/RegistModalProvider";
 
 import { makeStyles, createStyles } from '@material-ui/core/styles';
 import MainTable from '../components/MainTable';
@@ -18,12 +18,11 @@ import {Button} from "@material-ui/core";
 function Color() {
 
     const [shifts, setShifts] = useState([]);
-    const [registModal, setRegistModal] = useState(false);
+    //const [registModal, setRegistModal] = useState(false);
     const [registShiftData,setRegistShiftData] = useState({cast_date:'', user_name:'', status:''});
-    //const {registModal, setRegistModal} = useContext(RegistModalContext);
+    const {registModal, setRegistModal} = useContext(RegistModalContext);
 
     const onClick = () => {
-                console.log('頭を傾けて踊って');
                 this.style.backgroundColor = "red"
     }
 
@@ -101,7 +100,7 @@ function Color() {
             <div className="col-md-10">
                 <ShiftTable  shift_rows={shift_rows} />
                 <Button color="secondary" variant="contained" onClick={() => setRegistModal(true)}>新しいシフトを登録</Button>
-                <RegistModalWindow registShiftData={registShiftData} registModal={registModal} setRegistModal={ setRegistModal } registShiftFunction={registShiftFunction} inputChangeShift={inputChangeShift}/>
+                <RegistModalWindow registShiftData={registShiftData} registShiftFunction={registShiftFunction} inputChangeShift={inputChangeShift}/>
             </div>
         </div>
     </div>

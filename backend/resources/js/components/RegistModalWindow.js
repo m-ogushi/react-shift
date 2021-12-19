@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import { TextField, Button } from '@material-ui/core';
 import {makeStyles} from "@material-ui/core/styles";
+import {RegistModalContext} from "./providers/RegistModalProvider";
 
 function RegistModalWindows(props) {
-    const {registShiftData, registModal, setRegistModal, registShiftFunction, inputChangeShift} = props;
+    const {registShiftData, registShiftFunction, inputChangeShift} = props;
+
+    const {registModal, setRegistModal} = useContext(RegistModalContext);
 
     const useStyles = makeStyles({
         overlay: {

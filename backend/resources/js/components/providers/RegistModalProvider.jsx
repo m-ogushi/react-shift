@@ -9,6 +9,7 @@ export const RegistModalProvider = props => {
 
     return (
         <RegistModalContext.Provider value = {{ registModal, setRegistModal }}>
+            {children}
         </RegistModalContext.Provider>
     )
 }
