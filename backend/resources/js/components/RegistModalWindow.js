@@ -4,7 +4,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import {RegistModalContext} from "./providers/RegistModalProvider";
 
 function RegistModalWindows(props) {
-    const {registShiftData, registShiftFunction, inputChangeShift} = props;
+    const {registShiftData, changeShiftFunction, inputChangeShift} = props;
 
     const {registModal, setRegistModal} = useContext(RegistModalContext);
 
@@ -31,14 +31,14 @@ function RegistModalWindows(props) {
 
     const classes = useStyles();
 
-    if ( registModal ) {
+    if ( registModal === true || typeof( registModal ) === "number" ) {
         return (
             <div id="overlay" className={classes.overlay}>
                 <div id="content" className={classes.content}>
                     <TextField id="cast_date" label="シフト日" variant="outlined" className={classes.textArea} name="cast_date" value={registShiftData.cast_date} onChange={inputChangeShift} />
                     <TextField id="user_name" label="氏名" variant="outlined" className={classes.textArea} name="user_name" value={registShiftData.user_name} onChange={inputChangeShift} />
                     <TextField id="status" type="number" label="ステータス" variant="outlined" className={classes.textArea} name="status" value={registShiftData.status} onChange={inputChangeShift} />
-                    <Button color="primary" variant="contained" onClick={registShiftFunction}>登録</Button>
+                    <Button color="primary" variant="contained" onClick={changeShiftFunction}>登録</Button>
                     <button onClick={() => setRegistModal(false)}>やめる</button>
                 </div>
             </div>

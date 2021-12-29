@@ -19,7 +19,7 @@ function Color() {
 
     const [shifts, setShifts] = useState([]);
     //const [registModal, setRegistModal] = useState(false);
-    const [registShiftData,setRegistShiftData] = useState({cast_date:'', user_name:'', status:''});
+    const [registShiftData,setRegistShiftData] = useState({id:'', cast_date:'', user_name:'', status:''});
     const {registModal, setRegistModal} = useContext(RegistModalContext);
 
     const onClick = () => {
@@ -49,6 +49,14 @@ function Color() {
             });
     }
 
+    const changeShiftFunction = async() => {
+        if ( typeof( registModal ) === "number" ) {
+            editShiftFunction();
+        } else {
+            registShiftFunction();
+        }
+    }
+
     const registShiftFunction = async() => {
         //空だと弾く
         if(registShiftData == ''){
@@ -75,6 +83,45 @@ function Color() {
             });
     }
 
+
+    const editShiftFunction = async() => {
+        if(registShiftData == ''){
+            return;
+        }
+
+        await axios
+            .post('/api/shift/edit', {
+                id: registModal,
+                cast_date: registShiftData.cast_date,
+                user_name: registShiftData.user_name,
+                status: registShiftData.status,
+            })
+            .then((res) => {
+                //戻り値をtodosにセット
+                const tempPosts = shifts
+                setRegistModal(false);
+                //tempPosts.push(res.data);
+                getShiftIndex( tempPosts, res.data );
+                setShifts(tempPosts)
+                setRegistShiftData({cast_date:'', user_name:'', status:''});
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    const getShiftIndex = ( tempPosts, edit_data ) => {
+        const result = tempPosts.filter(value => {
+            if(value.id === registModal ) {
+                value.cast_date = edit_data.cast_date;
+                value.user_name = edit_data.user_name;
+                value.status = edit_data.status;
+                return value
+            }
+        });
+    }
+
+
     const inputChangeShift = (e) => {
         const key = e.target.name;
         const value = e.target.value;
@@ -88,9 +135,10 @@ function Color() {
     //postsの要素ごとにrowsで使える形式に変換する
     shifts.map((shift) =>
         shift_rows.push({
+            id       : shift.id,
             cast_date: shift.cast_date,
             user_name: shift.user_name,
-            status: shift.status,
+            status   : shift.status,
         })
     );
 
@@ -100,7 +148,7 @@ function Color() {
             <div className="col-md-10">
                 <ShiftTable  shift_rows={shift_rows} />
                 <Button color="secondary" variant="contained" onClick={() => setRegistModal(true)}>新しいシフトを登録</Button>
-                <RegistModalWindow registShiftData={registShiftData} registShiftFunction={registShiftFunction} inputChangeShift={inputChangeShift}/>
+                <RegistModalWindow registShiftData={registShiftData} changeShiftFunction={changeShiftFunction} inputChangeShift={inputChangeShift}/>
             </div>
         </div>
     </div>

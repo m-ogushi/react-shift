@@ -19944,7 +19944,7 @@ __webpack_require__.r(__webpack_exports__);
 
 function RegistModalWindows(props) {
   var registShiftData = props.registShiftData,
-      registShiftFunction = props.registShiftFunction,
+      changeShiftFunction = props.changeShiftFunction,
       inputChangeShift = props.inputChangeShift;
 
   var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_1__.RegistModalContext),
@@ -19972,7 +19972,7 @@ function RegistModalWindows(props) {
   });
   var classes = useStyles();
 
-  if (registModal) {
+  if (registModal === true || typeof registModal === "number") {
     return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       id: "overlay",
       className: classes.overlay,
@@ -20007,7 +20007,7 @@ function RegistModalWindows(props) {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], {
           color: "primary",
           variant: "contained",
-          onClick: registShiftFunction,
+          onClick: changeShiftFunction,
           children: "\u767B\u9332"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
           onClick: function onClick() {
@@ -20038,15 +20038,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core_Table__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core/Table */ "./node_modules/@material-ui/core/esm/Table/Table.js");
-/* harmony import */ var _material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TableBody */ "./node_modules/@material-ui/core/esm/TableBody/TableBody.js");
-/* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/TableCell.js");
-/* harmony import */ var _material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/TableHead */ "./node_modules/@material-ui/core/esm/TableHead/TableHead.js");
-/* harmony import */ var _material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/TableRow */ "./node_modules/@material-ui/core/esm/TableRow/TableRow.js");
+/* harmony import */ var _material_ui_core_Table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Table */ "./node_modules/@material-ui/core/esm/Table/Table.js");
+/* harmony import */ var _material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/TableBody */ "./node_modules/@material-ui/core/esm/TableBody/TableBody.js");
+/* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/TableCell.js");
+/* harmony import */ var _material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/TableHead */ "./node_modules/@material-ui/core/esm/TableHead/TableHead.js");
+/* harmony import */ var _material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TableRow */ "./node_modules/@material-ui/core/esm/TableRow/TableRow.js");
 /* harmony import */ var _PostFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostFrom */ "./resources/js/components/PostFrom.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
 
 
 
@@ -20062,9 +20067,11 @@ __webpack_require__.r(__webpack_exports__);
 var headerList = ['シフト日', '名前', 'ステータス'];
 
 function ShiftTable(props) {
-  var _this = this;
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_2__.RegistModalContext),
+      registModal = _useContext.registModal,
+      setRegistModal = _useContext.setRegistModal;
 
-  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["default"])({
+  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["default"])({
     rectangle: {
       backgroundColor: "blue"
     },
@@ -20078,12 +20085,6 @@ function ShiftTable(props) {
       backgroundColor: "lightblue"
     }
   });
-
-  var onClick = function onClick() {
-    console.log('頭を傾けて踊って');
-    _this.style.backgroundColor = "red";
-  };
-
   var classes = useStyles();
   var shift_rows = props.shift_rows;
 
@@ -20100,52 +20101,53 @@ function ShiftTable(props) {
     }
   };
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_4__["default"], {
+  function editRegistModal(shift_id) {
+    console.log("レジェンド");
+    console.log(shift_id);
+    console.log(Number(shift_id));
+    setRegistModal(shift_id);
+  }
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_6__["default"], {
     className: classes.table,
     "aria-label": "simple table",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_5__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], {
         children: headerList.map(function (item, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
             align: "center",
             children: item
           }, index);
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_10__["default"], {
       children: shift_rows.map(function (row, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_6__["default"], {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], {
           className: getShiftStatusClass(row['status']),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
             align: "center",
             children: row['cast_date']
-          }, "0"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          }, "0"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
             align: "center",
             children: row['user_name']
-          }, "1"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          }, "1"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
             align: "center",
             children: row['status']
-          }, "2"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_7__["default"], {
+          }, "2"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
             align: "center",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
               color: "secondary",
               variant: "contained",
-              href: "/post/edit/",
+              onClick: function onClick() {
+                return editRegistModal(row['id']);
+              },
               children: "\u7DE8\u96C6"
             }, "3")
           }, "3")]
         }, index);
       })
     })]
-  })
-  /*<div /!*className={classes.rectangle}*!/ onClick={onClick} >
-      <a>あ</a>
-      <a>い</a>
-      <a>う</a>
-      <a>え</a>
-      <a>お</a>
-  </div>*/
-  ;
+  });
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShiftTable);
@@ -20315,6 +20317,7 @@ function Color() {
 
 
   var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    id: '',
     cast_date: '',
     user_name: '',
     status: ''
@@ -20328,7 +20331,6 @@ function Color() {
       setRegistModal = _useContext.setRegistModal;
 
   var onClick = function onClick() {
-    console.log('頭を傾けて踊って');
     _this.style.backgroundColor = "red";
   };
 
@@ -20350,21 +20352,46 @@ function Color() {
     });
   };
 
-  var registShiftFunction = /*#__PURE__*/function () {
+  var changeShiftFunction = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
       return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
+              if (typeof registModal === "number") {
+                editShiftFunction();
+              } else {
+                registShiftFunction();
+              }
+
+            case 1:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function changeShiftFunction() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var registShiftFunction = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
               if (!(registShiftData == '')) {
-                _context.next = 2;
+                _context2.next = 2;
                 break;
               }
 
-              return _context.abrupt("return");
+              return _context2.abrupt("return");
 
             case 2:
-              _context.next = 4;
+              _context2.next = 4;
               return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/shift/regist', {
                 cast_date: registShiftData.cast_date,
                 user_name: registShiftData.user_name,
@@ -20386,16 +20413,77 @@ function Color() {
 
             case 4:
             case "end":
-              return _context.stop();
+              return _context2.stop();
           }
         }
-      }, _callee);
+      }, _callee2);
     }));
 
     return function registShiftFunction() {
-      return _ref.apply(this, arguments);
+      return _ref2.apply(this, arguments);
     };
   }();
+
+  var editShiftFunction = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              if (!(registShiftData == '')) {
+                _context3.next = 2;
+                break;
+              }
+
+              return _context3.abrupt("return");
+
+            case 2:
+              _context3.next = 4;
+              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/shift/edit', {
+                id: registModal,
+                cast_date: registShiftData.cast_date,
+                user_name: registShiftData.user_name,
+                status: registShiftData.status
+              }).then(function (res) {
+                //戻り値をtodosにセット
+                var tempPosts = shifts;
+                setRegistModal(false); //tempPosts.push(res.data);
+
+                //tempPosts.push(res.data);
+                getShiftIndex(tempPosts, res.data);
+                setShifts(tempPosts);
+                setRegistShiftData({
+                  cast_date: '',
+                  user_name: '',
+                  status: ''
+                });
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 4:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function editShiftFunction() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  var getShiftIndex = function getShiftIndex(tempPosts, edit_data) {
+    var result = tempPosts.filter(function (value) {
+      if (value.id === registModal) {
+        value.cast_date = edit_data.cast_date;
+        value.user_name = edit_data.user_name;
+        value.status = edit_data.status;
+        return value;
+      }
+    });
+  };
 
   var inputChangeShift = function inputChangeShift(e) {
     var key = e.target.name;
@@ -20410,6 +20498,7 @@ function Color() {
 
   shifts.map(function (shift) {
     return shift_rows.push({
+      id: shift.id,
       cast_date: shift.cast_date,
       user_name: shift.user_name,
       status: shift.status
@@ -20432,7 +20521,7 @@ function Color() {
           children: "\u65B0\u3057\u3044\u30B7\u30D5\u30C8\u3092\u767B\u9332"
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_RegistModalWindow__WEBPACK_IMPORTED_MODULE_4__["default"], {
           registShiftData: registShiftData,
-          registShiftFunction: registShiftFunction,
+          changeShiftFunction: changeShiftFunction,
           inputChangeShift: inputChangeShift
         })]
       })

@@ -32,4 +32,15 @@ class ShiftController extends Controller
         return response()->json($shift, 200);
     }
 
+
+    public function edit( Request $request )
+    {
+        $shift = Shift::find( $request->id );
+        $shift->cast_date = $request->cast_date;
+        $shift->user_name = $request->user_name;
+        $shift->status    = $request->status;
+        $shift->save();
+        return response()->json($shift, 200);
+    }
+
 }
