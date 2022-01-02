@@ -33,6 +33,13 @@ class ShiftController extends Controller
     }
 
 
+    public function find( Request $request )
+    {
+        $shift = Shift::find( $request->id );
+        return response()->json($shift, 200);
+    }
+
+
     public function edit( Request $request )
     {
         $shift = Shift::find( $request->id );
@@ -40,6 +47,13 @@ class ShiftController extends Controller
         $shift->user_name = $request->user_name;
         $shift->status    = $request->status;
         $shift->save();
+        return response()->json($shift, 200);
+    }
+
+
+    public function delete( Request $request )
+    {
+        $shift = Shift::find( $request->id );
         return response()->json($shift, 200);
     }
 

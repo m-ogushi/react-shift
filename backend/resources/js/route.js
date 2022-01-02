@@ -9,9 +9,9 @@ import Example from './pages/Example';
 import Home from './pages/Home';
 import PostEdit from './pages/PostEdit';
 import Color from './pages/Color';
-import Test from './Test';
-import {AdminFlagProvider} from "./components/providers/AdminFlagProvider";
+
 import {RegistModalProvider} from "./components/providers/RegistModalProvider";
+import {ShiftsProvider} from "./components/providers/ShiftsProvider";
 
 function App() {
     return (
@@ -22,15 +22,12 @@ function App() {
                     <Route exact path="/post/edit/:id" element={<PostEdit/>} />
                 </Routes>
             <RegistModalProvider>
+            <ShiftsProvider>
                 <Routes>
                     <Route exact path="/color" element={<Color/>} />
                 </Routes>
+            </ShiftsProvider>
             </RegistModalProvider>
-            <AdminFlagProvider>
-                <Routes>
-                    <Route exact path="/test" element={<Test/>} />
-                </Routes>
-            </AdminFlagProvider>
         </div>
     );
 }

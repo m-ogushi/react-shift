@@ -19575,55 +19575,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./resources/js/Test.jsx":
-/*!*******************************!*\
-  !*** ./resources/js/Test.jsx ***!
-  \*******************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Test": () => (/* binding */ Test),
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _components_providers_AdminFlagProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/providers/AdminFlagProvider */ "./resources/js/components/providers/AdminFlagProvider.jsx");
-/* harmony import */ var _components_Card__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/Card */ "./resources/js/components/Card.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-
-
-var Test = function Test() {
-  // Context内のisAdminと更新関数を取得
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_components_providers_AdminFlagProvider__WEBPACK_IMPORTED_MODULE_1__.AdminFlagContext),
-      isAdmin = _useContext.isAdmin,
-      setIsAdmin = _useContext.setIsAdmin; // 切り替え押下時
-
-
-  var onClickSwitch = function onClickSwitch() {
-    return setIsAdmin(!isAdmin);
-  };
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
-    children: [isAdmin ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      children: "\u7BA1\u7406\u8005\u3067\u3059"
-    }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("span", {
-      children: "\u7BA1\u7406\u8005\u4EE5\u5916\u3067\u3059"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("button", {
-      onClick: onClickSwitch,
-      children: "\u5207\u308A\u66FF\u3048"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_components_Card__WEBPACK_IMPORTED_MODULE_2__.Card, {
-      isAdmin: isAdmin
-    })]
-  });
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Test);
-
-/***/ }),
-
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
@@ -19681,81 +19632,6 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     forceTLS: true
 // });
-
-/***/ }),
-
-/***/ "./resources/js/components/Card.jsx":
-/*!******************************************!*\
-  !*** ./resources/js/components/Card.jsx ***!
-  \******************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "Card": () => (/* binding */ Card)
-/* harmony export */ });
-/* harmony import */ var _EditButton__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./EditButton */ "./resources/js/components/EditButton.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var style = {
-  width: "300px",
-  height: "200px",
-  margin: "8px",
-  borderRadius: "8px",
-  backgroundColor: "#e9dbd0",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center"
-}; // シンプルになった!
-
-var Card = function Card() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-    style: style,
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-      children: "\u5C71\u7530\u592A\u90CE"
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_EditButton__WEBPACK_IMPORTED_MODULE_0__.EditButton, {})]
-  });
-};
-
-/***/ }),
-
-/***/ "./resources/js/components/EditButton.jsx":
-/*!************************************************!*\
-  !*** ./resources/js/components/EditButton.jsx ***!
-  \************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "EditButton": () => (/* binding */ EditButton)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _providers_AdminFlagProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./providers/AdminFlagProvider */ "./resources/js/components/providers/AdminFlagProvider.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-
-var style = {
-  width: "100px",
-  padding: "6px",
-  borderRadius: "8px"
-};
-var EditButton = function EditButton() {
-  // Context内のisAdminを取得
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_providers_AdminFlagProvider__WEBPACK_IMPORTED_MODULE_1__.AdminFlagContext),
-      isAdmin = _useContext.isAdmin;
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
-    style: style,
-    disabled: !isAdmin,
-    children: "\u7DE8\u96C6"
-  });
-};
 
 /***/ }),
 
@@ -19929,12 +19805,34 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
-/* harmony import */ var _providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
+/* harmony import */ var _components_providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/providers/ShiftsProvider */ "./resources/js/components/providers/ShiftsProvider.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
@@ -19942,16 +19840,29 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-function RegistModalWindows(props) {
-  var registShiftData = props.registShiftData,
-      changeShiftFunction = props.changeShiftFunction,
-      inputChangeShift = props.inputChangeShift;
 
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_1__.RegistModalContext),
+
+
+function RegistModalWindows() {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_2__.RegistModalContext),
       registModal = _useContext.registModal,
       setRegistModal = _useContext.setRegistModal;
 
-  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_3__["default"])({
+  var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_components_providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_3__.ShiftsContext),
+      shifts = _useContext2.shifts,
+      setShifts = _useContext2.setShifts;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
+    cast_date: '',
+    user_name: '',
+    status: ''
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      registShiftData = _useState2[0],
+      setRegistShiftData = _useState2[1]; //
+
+
+  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_6__["default"])({
     overlay: {
       position: "fixed",
       top: 0,
@@ -19971,15 +19882,179 @@ function RegistModalWindows(props) {
     }
   });
   var classes = useStyles();
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    if (typeof registModal === "number") {
+      findEditShift();
+    } else {
+      setRegistShiftData({
+        cast_date: '',
+        user_name: '',
+        status: ''
+      });
+    }
+  }, [registModal]);
+
+  var inputChangeShift = function inputChangeShift(e) {
+    var key = e.target.name;
+    var value = e.target.value;
+    registShiftData[key] = value;
+    var data = Object.assign({}, registShiftData);
+    setRegistShiftData(data);
+  };
+
+  var findEditShift = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_4___default().post('/api/shift/find', {
+                id: registModal
+              }).then(function (res) {
+                setRegistShiftData({
+                  cast_date: res.data.cast_date,
+                  user_name: res.data.user_name,
+                  status: res.data.status
+                });
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function findEditShift() {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  var changeShiftFunction = /*#__PURE__*/function () {
+    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
+        while (1) {
+          switch (_context2.prev = _context2.next) {
+            case 0:
+              if (!(registShiftData == '')) {
+                _context2.next = 2;
+                break;
+              }
+
+              return _context2.abrupt("return");
+
+            case 2:
+              if (typeof registModal === "number") {
+                editShiftFunction();
+              } else {
+                registShiftFunction();
+              }
+
+            case 3:
+            case "end":
+              return _context2.stop();
+          }
+        }
+      }, _callee2);
+    }));
+
+    return function changeShiftFunction() {
+      return _ref2.apply(this, arguments);
+    };
+  }();
+
+  var registShiftFunction = /*#__PURE__*/function () {
+    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
+        while (1) {
+          switch (_context3.prev = _context3.next) {
+            case 0:
+              _context3.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_4___default().post('/api/shift/regist', {
+                cast_date: registShiftData.cast_date,
+                user_name: registShiftData.user_name,
+                status: registShiftData.status
+              }).then(function (res) {
+                //戻り値をtodosにセット
+                var tempPosts = shifts;
+                tempPosts.push(res.data);
+                setShifts(tempPosts);
+                setRegistModal(false);
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 2:
+            case "end":
+              return _context3.stop();
+          }
+        }
+      }, _callee3);
+    }));
+
+    return function registShiftFunction() {
+      return _ref3.apply(this, arguments);
+    };
+  }();
+
+  var editShiftFunction = /*#__PURE__*/function () {
+    var _ref4 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee4() {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee4$(_context4) {
+        while (1) {
+          switch (_context4.prev = _context4.next) {
+            case 0:
+              _context4.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_4___default().post('/api/shift/edit', {
+                id: registModal,
+                cast_date: registShiftData.cast_date,
+                user_name: registShiftData.user_name,
+                status: registShiftData.status
+              }).then(function (res) {
+                //戻り値をtodosにセット
+                var tempPosts = shifts;
+                getShiftIndex(tempPosts, res.data);
+                setShifts(tempPosts);
+                setRegistModal(false);
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 2:
+            case "end":
+              return _context4.stop();
+          }
+        }
+      }, _callee4);
+    }));
+
+    return function editShiftFunction() {
+      return _ref4.apply(this, arguments);
+    };
+  }();
+
+  var getShiftIndex = function getShiftIndex(tempPosts, edit_data) {
+    var result = tempPosts.filter(function (value) {
+      if (value.id === registModal) {
+        value.cast_date = edit_data.cast_date;
+        value.user_name = edit_data.user_name;
+        value.status = edit_data.status;
+        return value;
+      }
+    });
+  };
 
   if (registModal === true || typeof registModal === "number") {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
       id: "overlay",
       className: classes.overlay,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsxs)("div", {
         id: "content",
         className: classes.content,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
           id: "cast_date",
           label: "\u30B7\u30D5\u30C8\u65E5",
           variant: "outlined",
@@ -19987,7 +20062,7 @@ function RegistModalWindows(props) {
           name: "cast_date",
           value: registShiftData.cast_date,
           onChange: inputChangeShift
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
           id: "user_name",
           label: "\u6C0F\u540D",
           variant: "outlined",
@@ -19995,7 +20070,7 @@ function RegistModalWindows(props) {
           name: "user_name",
           value: registShiftData.user_name,
           onChange: inputChangeShift
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_7__["default"], {
           id: "status",
           type: "number",
           label: "\u30B9\u30C6\u30FC\u30BF\u30B9",
@@ -20004,12 +20079,12 @@ function RegistModalWindows(props) {
           name: "status",
           value: registShiftData.status,
           onChange: inputChangeShift
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_5__["default"], {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
           color: "primary",
           variant: "contained",
           onClick: changeShiftFunction,
           children: "\u767B\u9332"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("button", {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("button", {
           onClick: function onClick() {
             return setRegistModal(false);
           },
@@ -20037,19 +20112,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var _material_ui_core_Table__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @material-ui/core/Table */ "./node_modules/@material-ui/core/esm/Table/Table.js");
-/* harmony import */ var _material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/TableBody */ "./node_modules/@material-ui/core/esm/TableBody/TableBody.js");
-/* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/TableCell.js");
-/* harmony import */ var _material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/TableHead */ "./node_modules/@material-ui/core/esm/TableHead/TableHead.js");
-/* harmony import */ var _material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/TableRow */ "./node_modules/@material-ui/core/esm/TableRow/TableRow.js");
-/* harmony import */ var _PostFrom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PostFrom */ "./resources/js/components/PostFrom.js");
-/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var _providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _material_ui_core_Table__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core/Table */ "./node_modules/@material-ui/core/esm/Table/Table.js");
+/* harmony import */ var _material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! @material-ui/core/TableBody */ "./node_modules/@material-ui/core/esm/TableBody/TableBody.js");
+/* harmony import */ var _material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @material-ui/core/TableCell */ "./node_modules/@material-ui/core/esm/TableCell/TableCell.js");
+/* harmony import */ var _material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core/TableHead */ "./node_modules/@material-ui/core/esm/TableHead/TableHead.js");
+/* harmony import */ var _material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @material-ui/core/TableRow */ "./node_modules/@material-ui/core/esm/TableRow/TableRow.js");
+/* harmony import */ var _PostFrom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PostFrom */ "./resources/js/components/PostFrom.js");
+/* harmony import */ var _material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @material-ui/core/styles */ "./node_modules/@material-ui/core/esm/styles/makeStyles.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var _providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./providers/ShiftsProvider */ "./resources/js/components/providers/ShiftsProvider.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+
 
 
 
@@ -20066,27 +20163,41 @@ __webpack_require__.r(__webpack_exports__);
 
 var headerList = ['シフト日', '名前', 'ステータス'];
 
-function ShiftTable(props) {
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_2__.RegistModalContext),
+function ShiftTable() {
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_3__.RegistModalContext),
       registModal = _useContext.registModal,
       setRegistModal = _useContext.setRegistModal;
 
-  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["default"])({
+  var _useContext2 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_5__.ShiftsContext),
+      shifts = _useContext2.shifts,
+      setShifts = _useContext2.setShifts;
+
+  var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_7__["default"])({
     rectangle: {
       backgroundColor: "blue"
     },
     provision: {
-      backgroundColor: "yellow"
+      backgroundColor: "lightpink"
     },
     pending: {
-      backgroundColor: "orange"
+      backgroundColor: "lightgreen"
     },
     confirm: {
       backgroundColor: "lightblue"
     }
   });
   var classes = useStyles();
-  var shift_rows = props.shift_rows;
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
+    getShiftsData();
+  }, []); //バックエンドからpostsの一覧を取得する処理
+
+  var getShiftsData = function getShiftsData() {
+    axios__WEBPACK_IMPORTED_MODULE_4___default().get('/api/shift/list').then(function (response) {
+      setShifts(response.data);
+    })["catch"](function () {
+      console.log('通信に失敗しました');
+    });
+  };
 
   var getShiftStatusClass = function getShiftStatusClass(status) {
     switch (parseInt(status)) {
@@ -20102,40 +20213,73 @@ function ShiftTable(props) {
   };
 
   function editRegistModal(shift_id) {
-    console.log("レジェンド");
-    console.log(shift_id);
-    console.log(Number(shift_id));
     setRegistModal(shift_id);
   }
 
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_6__["default"], {
+  var deleteShift = /*#__PURE__*/function () {
+    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee(shift_id, shift_index) {
+      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return axios__WEBPACK_IMPORTED_MODULE_4___default().post('/api/shift/delete', {
+                id: shift_id
+              }).then(function (res) {
+                //戻り値をtodosにセット
+
+                /*const tempPosts = shifts;
+                 deleteShiftIndex( tempPosts, shift_index.index );
+                setShifts(tempPosts);*/
+                var tempPosts = _toConsumableArray(shifts);
+
+                tempPosts.splice(shift_index.index, 1);
+                setShifts(tempPosts);
+              })["catch"](function (error) {
+                console.log(error);
+              });
+
+            case 2:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    return function deleteShift(_x, _x2) {
+      return _ref.apply(this, arguments);
+    };
+  }();
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_Table__WEBPACK_IMPORTED_MODULE_8__["default"], {
     className: classes.table,
     "aria-label": "simple table",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_7__["default"], {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableHead__WEBPACK_IMPORTED_MODULE_9__["default"], {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_10__["default"], {
         children: headerList.map(function (item, index) {
-          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__["default"], {
             align: "center",
             children: item
           }, index);
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_10__["default"], {
-      children: shift_rows.map(function (row, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_8__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableBody__WEBPACK_IMPORTED_MODULE_12__["default"], {
+      children: shifts.map(function (row, index) {
+        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsxs)(_material_ui_core_TableRow__WEBPACK_IMPORTED_MODULE_10__["default"], {
           className: getShiftStatusClass(row['status']),
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__["default"], {
             align: "center",
             children: row['cast_date']
-          }, "0"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          }, "0"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__["default"], {
             align: "center",
             children: row['user_name']
-          }, "1"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          }, "1"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__["default"], {
             align: "center",
             children: row['status']
-          }, "2"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_9__["default"], {
+          }, "2"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__["default"], {
             align: "center",
-            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_13__["default"], {
               color: "secondary",
               variant: "contained",
               onClick: function onClick() {
@@ -20143,7 +20287,19 @@ function ShiftTable(props) {
               },
               children: "\u7DE8\u96C6"
             }, "3")
-          }, "3")]
+          }, "3"), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core_TableCell__WEBPACK_IMPORTED_MODULE_11__["default"], {
+            align: "center",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_6__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_13__["default"], {
+              color: "secondary",
+              variant: "contained",
+              onClick: function onClick() {
+                return deleteShift(row['id'], {
+                  index: index
+                });
+              },
+              children: "\u524A\u9664"
+            }, "4")
+          }, "4")]
         }, index);
       })
     })]
@@ -20151,55 +20307,6 @@ function ShiftTable(props) {
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ShiftTable);
-
-/***/ }),
-
-/***/ "./resources/js/components/providers/AdminFlagProvider.jsx":
-/*!*****************************************************************!*\
-  !*** ./resources/js/components/providers/AdminFlagProvider.jsx ***!
-  \*****************************************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "AdminFlagContext": () => (/* binding */ AdminFlagContext),
-/* harmony export */   "AdminFlagProvider": () => (/* binding */ AdminFlagProvider)
-/* harmony export */ });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
-
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
-
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
-
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
-
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
-
-
-
-var AdminFlagContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
-var AdminFlagProvider = function AdminFlagProvider(props) {
-  var children = props.children; // 管理者フラグ
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      isAdmin = _useState2[0],
-      setIsAdmin = _useState2[1]; // ContextオブジェクトとしてisAdminとsetIsAdminを設定(オブジェクトの省略記法)
-
-
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(AdminFlagContext.Provider, {
-    value: {
-      isAdmin: isAdmin,
-      setIsAdmin: setIsAdmin
-    },
-    children: children
-  });
-};
 
 /***/ }),
 
@@ -20251,34 +20358,20 @@ var RegistModalProvider = function RegistModalProvider(props) {
 
 /***/ }),
 
-/***/ "./resources/js/pages/Color.js":
-/*!*************************************!*\
-  !*** ./resources/js/pages/Color.js ***!
-  \*************************************/
+/***/ "./resources/js/components/providers/ShiftsProvider.jsx":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/providers/ShiftsProvider.jsx ***!
+  \**************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */   "ShiftsContext": () => (/* binding */ ShiftsContext),
+/* harmony export */   "ShiftsProvider": () => (/* binding */ ShiftsProvider)
 /* harmony export */ });
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
-/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
-/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _components_ShiftTable__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/ShiftTable */ "./resources/js/components/ShiftTable.js");
-/* harmony import */ var _components_RegistModalWindow__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/RegistModalWindow */ "./resources/js/components/RegistModalWindow.js");
-/* harmony import */ var _components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
-/* harmony import */ var _components_MainTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/MainTable */ "./resources/js/components/MainTable.js");
-/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
-
-function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
-
-function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
-
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -20290,6 +20383,51 @@ function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len 
 function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+
+
+var ShiftsContext = /*#__PURE__*/(0,react__WEBPACK_IMPORTED_MODULE_0__.createContext)({});
+var ShiftsProvider = function ShiftsProvider(props) {
+  var children = props.children;
+
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]),
+      _useState2 = _slicedToArray(_useState, 2),
+      shifts = _useState2[0],
+      setShifts = _useState2[1];
+
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(ShiftsContext.Provider, {
+    value: {
+      shifts: shifts,
+      setShifts: setShifts
+    },
+    children: children
+  });
+};
+
+/***/ }),
+
+/***/ "./resources/js/pages/Color.js":
+/*!*************************************!*\
+  !*** ./resources/js/pages/Color.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_ShiftTable__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../components/ShiftTable */ "./resources/js/components/ShiftTable.js");
+/* harmony import */ var _components_RegistModalWindow__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../components/RegistModalWindow */ "./resources/js/components/RegistModalWindow.js");
+/* harmony import */ var _components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../components/providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
+/* harmony import */ var _components_providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../components/providers/ShiftsProvider */ "./resources/js/components/providers/ShiftsProvider.jsx");
+/* harmony import */ var _components_MainTable__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../components/MainTable */ "./resources/js/components/MainTable.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/TextField/TextField.js");
+/* harmony import */ var _material_ui_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @material-ui/core */ "./node_modules/@material-ui/core/esm/Button/Button.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -20308,222 +20446,44 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function Color() {
-  var _this = this;
-
-  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]),
-      _useState2 = _slicedToArray(_useState, 2),
-      shifts = _useState2[0],
-      setShifts = _useState2[1]; //const [registModal, setRegistModal] = useState(false);
-
-
-  var _useState3 = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)({
-    id: '',
-    cast_date: '',
-    user_name: '',
-    status: ''
-  }),
-      _useState4 = _slicedToArray(_useState3, 2),
-      registShiftData = _useState4[0],
-      setRegistShiftData = _useState4[1];
-
-  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_1__.useContext)(_components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_5__.RegistModalContext),
-      registModal = _useContext.registModal,
+  var _useContext = (0,react__WEBPACK_IMPORTED_MODULE_0__.useContext)(_components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_4__.RegistModalContext),
       setRegistModal = _useContext.setRegistModal;
 
-  var onClick = function onClick() {
-    _this.style.backgroundColor = "red";
-  };
-
-  var openRegistModal = function openRegistModal() {
-    setRegistModal(true);
-  };
-
-  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(function () {
-    getShiftsData();
-  }, []); //バックエンドからpostsの一覧を取得する処理
-
-  var getShiftsData = function getShiftsData() {
-    axios__WEBPACK_IMPORTED_MODULE_2___default().get('/api/shift/list').then(function (response) {
-      setShifts(response.data); //setPosts(response.data);     //バックエンドから返ってきたデータでpostsを更新する
-
-      console.log(response.data); //取得データ確認用のconsole.log()
-    })["catch"](function () {
-      console.log('通信に失敗しました');
-    });
-  };
-
-  var changeShiftFunction = /*#__PURE__*/function () {
-    var _ref = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (typeof registModal === "number") {
-                editShiftFunction();
-              } else {
-                registShiftFunction();
-              }
-
-            case 1:
-            case "end":
-              return _context.stop();
-          }
-        }
-      }, _callee);
-    }));
-
-    return function changeShiftFunction() {
-      return _ref.apply(this, arguments);
-    };
-  }();
-
-  var registShiftFunction = /*#__PURE__*/function () {
-    var _ref2 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee2() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee2$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              if (!(registShiftData == '')) {
-                _context2.next = 2;
-                break;
-              }
-
-              return _context2.abrupt("return");
-
-            case 2:
-              _context2.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/shift/regist', {
-                cast_date: registShiftData.cast_date,
-                user_name: registShiftData.user_name,
-                status: registShiftData.status
-              }).then(function (res) {
-                //戻り値をtodosにセット
-                var tempPosts = shifts;
-                setRegistModal(false);
-                tempPosts.push(res.data);
-                setShifts(tempPosts);
-                setRegistShiftData({
-                  cast_date: '',
-                  user_name: '',
-                  status: ''
-                });
-              })["catch"](function (error) {
-                console.log(error);
-              });
-
-            case 4:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      }, _callee2);
-    }));
-
-    return function registShiftFunction() {
-      return _ref2.apply(this, arguments);
-    };
-  }();
-
-  var editShiftFunction = /*#__PURE__*/function () {
-    var _ref3 = _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().mark(function _callee3() {
-      return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default().wrap(function _callee3$(_context3) {
-        while (1) {
-          switch (_context3.prev = _context3.next) {
-            case 0:
-              if (!(registShiftData == '')) {
-                _context3.next = 2;
-                break;
-              }
-
-              return _context3.abrupt("return");
-
-            case 2:
-              _context3.next = 4;
-              return axios__WEBPACK_IMPORTED_MODULE_2___default().post('/api/shift/edit', {
-                id: registModal,
-                cast_date: registShiftData.cast_date,
-                user_name: registShiftData.user_name,
-                status: registShiftData.status
-              }).then(function (res) {
-                //戻り値をtodosにセット
-                var tempPosts = shifts;
-                setRegistModal(false); //tempPosts.push(res.data);
-
-                //tempPosts.push(res.data);
-                getShiftIndex(tempPosts, res.data);
-                setShifts(tempPosts);
-                setRegistShiftData({
-                  cast_date: '',
-                  user_name: '',
-                  status: ''
-                });
-              })["catch"](function (error) {
-                console.log(error);
-              });
-
-            case 4:
-            case "end":
-              return _context3.stop();
-          }
-        }
-      }, _callee3);
-    }));
-
-    return function editShiftFunction() {
-      return _ref3.apply(this, arguments);
-    };
-  }();
-
-  var getShiftIndex = function getShiftIndex(tempPosts, edit_data) {
-    var result = tempPosts.filter(function (value) {
-      if (value.id === registModal) {
-        value.cast_date = edit_data.cast_date;
-        value.user_name = edit_data.user_name;
-        value.status = edit_data.status;
-        return value;
-      }
-    });
-  };
-
-  var inputChangeShift = function inputChangeShift(e) {
-    var key = e.target.name;
-    var value = e.target.value;
-    registShiftData[key] = value;
-    var data = Object.assign({}, registShiftData);
-    setRegistShiftData(data);
-  }; //空配列として定義する
-
-
-  var shift_rows = []; //postsの要素ごとにrowsで使える形式に変換する
-
-  shifts.map(function (shift) {
-    return shift_rows.push({
-      id: shift.id,
-      cast_date: shift.cast_date,
-      user_name: shift.user_name,
-      status: shift.status
-    });
-  });
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
     className: "container",
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
       className: "row justify-content-center",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
         className: "col-md-10",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ShiftTable__WEBPACK_IMPORTED_MODULE_3__["default"], {
-          shift_rows: shift_rows
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              id: "content",
+              label: "\u30B7\u30D5\u30C8\u671F\u9593",
+              variant: "outlined",
+              name: "cast_term",
+              value: ""
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_8__["default"], {
+              id: "name",
+              label: "\u30BF\u30B9\u30AF\u540D",
+              variant: "outlined",
+              name: "name",
+              value: ""
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
+              color: "primary",
+              variant: "contained",
+              href: "/",
+              children: "\u691C\u7D22"
+            })]
+          })
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_ShiftTable__WEBPACK_IMPORTED_MODULE_2__["default"], {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_material_ui_core__WEBPACK_IMPORTED_MODULE_9__["default"], {
           color: "secondary",
           variant: "contained",
           onClick: function onClick() {
             return setRegistModal(true);
           },
           children: "\u65B0\u3057\u3044\u30B7\u30D5\u30C8\u3092\u767B\u9332"
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_RegistModalWindow__WEBPACK_IMPORTED_MODULE_4__["default"], {
-          registShiftData: registShiftData,
-          changeShiftFunction: changeShiftFunction,
-          inputChangeShift: inputChangeShift
-        })]
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_components_RegistModalWindow__WEBPACK_IMPORTED_MODULE_3__["default"], {})]
       })
     })
   });
@@ -20956,17 +20916,15 @@ PostEdit() {
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
-/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/index.js");
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/index.js");
 /* harmony import */ var _pages_Example__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Example */ "./resources/js/pages/Example.js");
 /* harmony import */ var _pages_Home__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Home */ "./resources/js/pages/Home.js");
 /* harmony import */ var _pages_PostEdit__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/PostEdit */ "./resources/js/pages/PostEdit.js");
 /* harmony import */ var _pages_Color__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/Color */ "./resources/js/pages/Color.js");
-/* harmony import */ var _Test__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./Test */ "./resources/js/Test.jsx");
-/* harmony import */ var _components_providers_AdminFlagProvider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/providers/AdminFlagProvider */ "./resources/js/components/providers/AdminFlagProvider.jsx");
-/* harmony import */ var _components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
-
+/* harmony import */ var _components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/providers/RegistModalProvider */ "./resources/js/components/providers/RegistModalProvider.jsx");
+/* harmony import */ var _components_providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/providers/ShiftsProvider */ "./resources/js/components/providers/ShiftsProvider.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
 
@@ -20980,43 +20938,37 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function App() {
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
         exact: true,
         path: "/example",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Example__WEBPACK_IMPORTED_MODULE_2__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Example__WEBPACK_IMPORTED_MODULE_2__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
         exact: true,
         path: "/",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {})
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Home__WEBPACK_IMPORTED_MODULE_3__["default"], {})
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
         exact: true,
         path: "/post/edit/:id",
-        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_PostEdit__WEBPACK_IMPORTED_MODULE_4__["default"], {})
+        element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_PostEdit__WEBPACK_IMPORTED_MODULE_4__["default"], {})
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_8__.RegistModalProvider, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-          exact: true,
-          path: "/color",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_pages_Color__WEBPACK_IMPORTED_MODULE_5__["default"], {})
-        })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_components_providers_AdminFlagProvider__WEBPACK_IMPORTED_MODULE_7__.AdminFlagProvider, {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Routes, {
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.Route, {
-          exact: true,
-          path: "/test",
-          element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_Test__WEBPACK_IMPORTED_MODULE_6__["default"], {})
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_providers_RegistModalProvider__WEBPACK_IMPORTED_MODULE_6__.RegistModalProvider, {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_components_providers_ShiftsProvider__WEBPACK_IMPORTED_MODULE_7__.ShiftsProvider, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Routes, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_9__.Route, {
+            exact: true,
+            path: "/color",
+            element: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_pages_Color__WEBPACK_IMPORTED_MODULE_5__["default"], {})
+          })
         })
       })
     })]
   });
 }
 
-react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_11__.BrowserRouter, {
-  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(App, {})
+react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(react_router_dom__WEBPACK_IMPORTED_MODULE_10__.BrowserRouter, {
+  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(App, {})
 }), document.getElementById('app'));
 
 /***/ }),
