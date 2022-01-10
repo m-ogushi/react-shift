@@ -1,14 +1,15 @@
 import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
-import ShiftTable from '../components/ShiftTable';
-import RegistModalWindow from '../components/RegistModalWindow';
+import ShiftSearch from "../components/Shift/ShiftSearch";
+import ShiftTable from '../components/Shift/ShiftTable';
+import RegistModalWindow from '../components/Shift/RegistModalWindow';
 
 import { RegistModalContext } from "../components/providers/RegistModalProvider";
 import { ShiftsContext } from "../components/providers/ShiftsProvider";
 
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import MainTable from '../components/MainTable';
+import MainTable from '../components/Shift/MainTable';
 import TableCell from "@material-ui/core/TableCell";
 import Table from '@material-ui/core/Table';
 import TableHead from '@material-ui/core/TableHead';
@@ -24,13 +25,7 @@ function Color() {
     <div className="container">
         <div className="row justify-content-center">
             <div className="col-md-10">
-                <div>
-                    <form>
-                        <TextField label="シフト期間" variant="outlined"  name="cast_term" value="" />
-                        <TextField label="タスク名" variant="outlined"  name="name" value=""  />
-                        <Button color="primary" variant="contained" href="/" >検索</Button>
-                    </form>
-                </div>
+                <ShiftSearch/>
                 <ShiftTable/>
                 <Button color="secondary" variant="contained" onClick={() => setRegistModal(true)}>新しいシフトを登録</Button>
                 <RegistModalWindow/>

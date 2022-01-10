@@ -8,9 +8,9 @@ import TableRow from '@material-ui/core/TableRow';
 import PostFrom from "./PostFrom";
 import {makeStyles} from "@material-ui/core/styles";
 import {Button} from "@material-ui/core";
-import {RegistModalContext} from "./providers/RegistModalProvider";
+import {RegistModalContext} from "../providers/RegistModalProvider";
 import axios from "axios";
-import {ShiftsContext} from "./providers/ShiftsProvider";
+import {ShiftsContext} from "../providers/ShiftsProvider";
 
 const headerList = ['シフト日', '名前','ステータス'];
 

@@ -26,4 +26,5 @@ Route::group(['middleware' => 'api'], function(){
     Route::post('shift/find', 'App\Http\Controllers\Api\ShiftController@find');
     Route::post('shift/edit',   'App\Http\Controllers\Api\ShiftController@edit');
     Route::post('shift/delete',   'App\Http\Controllers\Api\ShiftController@delete');
+    Route::post('shift/search',   'App\Http\Controllers\Api\ShiftController@search');
 });

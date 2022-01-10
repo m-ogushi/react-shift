@@ -6,7 +6,7 @@ import {
     Routes,
 } from 'react-router-dom';
 import Example from './pages/Example';
-import Home from './pages/Home';
+import Home from './pages/Shift/Home';
 import PostEdit from './pages/PostEdit';
 import Color from './pages/Color';
 

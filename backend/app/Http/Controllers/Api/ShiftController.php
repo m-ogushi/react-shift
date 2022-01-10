@@ -53,8 +53,31 @@ class ShiftController extends Controller
 
     public function delete( Request $request )
     {
-        $shift = Shift::find( $request->id );
+        $shift = Shift::find( $request->id )->delete();
         return response()->json($shift, 200);
     }
+
+
+    public function search( Request $request )
+    {
+        [$from,$to ,$cast_name] = [ $request->term_start, $request->term_end, $request->cast_name ];
+
+        if( !empty( $from ) && !empty( $to ) ) {
+            $shift = Shift::whereBetween('cast_date', [ $request->term_start, $request->term_end ] );
+        } else if( !empty( $from ) && empty( $to ) ) {
+            $shift = Shift::where('cast_date', ">=", $from );
+        } else if( empty( $from ) && !empty( $to ) ) {
+            $shift = Shift::where('cast_date', "<=", $to );
+        } else {
+            $shift = new Shift;
+        }
+
+        if ( !empty( $cast_name ) ) {
+            $shift = $shift->where('user_name', "=", $cast_name );
+        }
+        $shift = $shift->get();
+        return response()->json($shift, 200);
+    }
+
 
 }

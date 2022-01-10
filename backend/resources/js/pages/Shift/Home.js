@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Card } from '@material-ui/core';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-import MainTable from '../components/MainTable';
-import PostFrom from '../components/PostFrom';　//新しく作るフォームのコンポーネントの呼び出し
+import MainTable from '../../components/Shift/MainTable';
+import PostFrom from '../../components/Shift/PostFrom';　//新しく作るフォームのコンポーネントの呼び出し
 
 //スタイルの定義
 const useStyles = makeStyles((theme) => createStyles({
