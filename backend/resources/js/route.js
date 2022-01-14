@@ -5,10 +5,7 @@ import {
     Route,
     Routes,
 } from 'react-router-dom';
-import Example from './pages/Example';
-import Home from './pages/Shift/Home';
-import PostEdit from './pages/PostEdit';
-import Color from './pages/Color';
+import Shift from './pages/Shift';
 
 import {RegistModalProvider} from "./components/providers/RegistModalProvider";
 import {ShiftsProvider} from "./components/providers/ShiftsProvider";
@@ -16,15 +13,10 @@ import {ShiftsProvider} from "./components/providers/ShiftsProvider";
 function App() {
     return (
         <div>
-                <Routes>
-                    <Route exact path="/example" element={<Example/>}/>
-                    <Route exact path="/" element={<Home/>}/>
-                    <Route exact path="/post/edit/:id" element={<PostEdit/>} />
-                </Routes>
             <RegistModalProvider>
             <ShiftsProvider>
                 <Routes>
-                    <Route exact path="/color" element={<Color/>} />
+                    <Route exact path="/shift" element={<Shift/>} />
                 </Routes>
             </ShiftsProvider>
             </RegistModalProvider>
@@ -32,8 +24,17 @@ function App() {
     );
 }
 
+function Menu() {
+    return (
+        <div>
+            'レジェンド!'
+        </div>
+    );
+}
+
 ReactDOM.render((
     <BrowserRouter>
+            <Menu />
             <App />
     </BrowserRouter>
 ), document.getElementById('app'))
