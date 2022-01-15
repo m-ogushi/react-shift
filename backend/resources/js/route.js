@@ -7,12 +7,23 @@ import {
 } from 'react-router-dom';
 import Shift from './pages/Shift';
 
+/*import Menu from './components/Menu/Menu';*/
+
 import {RegistModalProvider} from "./components/providers/RegistModalProvider";
 import {ShiftsProvider} from "./components/providers/ShiftsProvider";
+import {makeStyles} from "@material-ui/core/styles";
 
 function App() {
+    const useStyles = makeStyles({
+        main: {
+            backgroundColor: "blue",
+            width: "69%",
+        },
+    });
+
+    const classes = useStyles();
     return (
-        <div>
+        <div className={classes.main}>
             <RegistModalProvider>
             <ShiftsProvider>
                 <Routes>
@@ -25,9 +36,17 @@ function App() {
 }
 
 function Menu() {
+    const useStyles = makeStyles({
+        menu: {
+            backgroundColor: "green",
+            width: "30%",
+        },
+    });
+
+    const classes = useStyles();
     return (
-        <div>
-            'レジェンド!'
+        <div className={classes.menu}>
+            メニュー
         </div>
     );
 }
